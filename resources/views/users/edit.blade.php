@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">User Table</div>
+                    <div class="card-header">Edit</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -18,17 +18,18 @@
                             {{csrf_field()}}
                             @method('PATCH')
                             <label>Name</label>
-                            <input class="form-control mb-2" name="name" type="text" value="{{Auth()->user()->name}}" readonly/>
+                            <input class="form-control mb-2" name="name" type="text" value="{{Auth::user()->name}}" readonly/>
 
                             <label>Title</label>
                             <input class="form-control mb-2" name="title" type="text" value="{{$users->title}}"/>
 
                             <label>Content</label>
-                            <textarea class="form-control mb-2" name="content">{{$users->content}}</textarea>
+                            <textarea class="form-control mb-2" name="content" rows="15">
+                                {{$users->content}}
+                            </textarea>
 
-                            <input class="btn btn-primary" type="submit" value="Edit"/>
+                            <input class="btn btn-outline-primary" type="submit" value="Edit"/>
                         </form>
-
 
                     </div>
                 </div>
